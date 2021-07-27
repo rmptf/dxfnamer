@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
-const path = require("path");
 
 const DfxFileSchema = new mongoose.Schema({
-    address: {
+    location: {
         type: String,
         required: [true, 'No author selected.'],
     }
