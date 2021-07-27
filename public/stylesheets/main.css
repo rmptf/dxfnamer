@@ -1,0 +1,59 @@
+@import "shared/fileUpload.css";
+@import "shared/body.css";
+@import "shared/header.css";
+@import "shared/fonts.css";
+@import "shared/buttons.css";
+
+/* Global Settings */
+:root {
+  --main-color-root: black;
+  --main-color-2-root: white;
+  --highlight-color-root: #00DDFF;
+  --highlight-color-2-root: #ff1d58;
+  --warning-color-root: red;
+  --neutral-color-root: #00000010;
+  --success-color-root: var(--highlight-color-root);
+
+  --main-color-root-rgb: 0, 0, 0;
+  --main-color-2-root-rgb: 255, 255, 255;
+  --highlight-color-root-rgb: 0, 221, 255;
+  --highlight-color-2-root-rgb: 255, 29, 88;
+  --warning-color-root-rgb: 255, 0, 0;
+  --neutral-color-root-rgb: 0, 0, 0, 0.314;
+  --success-color-root-rgb: var(--highlight-color-root-rgb);
+
+  --navigation-height-root: 5rem;
+  --devHeader-height-root: 2rem;
+
+  --main-font: "Montserrat", sans-serif;
+
+  --font-weight-bolder: 700;
+  --font-weight-bold: 600;
+  --font-weight-medium: 500;
+  --font-weight-regular: 400;
+  --font-weight-light: 300;
+
+  font-family: var(--main-font);
+  font-size: 62.5%;
+
+--color: #ff1d58;
+--color: #f75990;
+--color: #fff685;
+--color: #00DDFF;
+--color: #0049B7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/*
+--font-family-sans-serif: Nunito Sans,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+--font-family-monospace: Nunito Sans;
+*/
+ /*
+320px — 480px: Mobile devices.
+481px — 768px: iPads, Tablets.
+769px — 1024px: Small screens, laptops.
+*/
