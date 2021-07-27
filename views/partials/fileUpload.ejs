@@ -2,10 +2,14 @@
     <div>
         Select DXF file to edit.
     </div>
-    <div class="btn-container--row btn-align--center">
-        <button class="btn button__btn btn--outlined btn--primary" onclick="readFile()">
-            Upload
-        </button>
-    </div>
+    <form action="/file" method="POST">
+        <input type="text" name="input">
+        <div class="btn-container--row btn-align--center">
+            <button class="btn button__btn btn--outlined btn--primary" type="submit" onclick="readFile()">
+                Upload
+            </button>
+        </div>
+    </form>
+    
 </div>
  <script src="/javascripts/fileUpload.js"></script>
