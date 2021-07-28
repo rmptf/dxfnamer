@@ -2,14 +2,24 @@
     <div>
         Select DXF file to edit.
     </div>
-    <form action="/file" method="POST">
+    <!-- <form action="/file" method="POST">
         <input type="text" name="input">
         <div class="btn-container--row btn-align--center">
             <button class="btn button__btn btn--outlined btn--primary" type="submit" onclick="readFile()">
                 Upload
             </button>
         </div>
+    </form> -->
+    <form class="" action="/upload" method="POST" enctype="multipart/form-data">
+        <input class="" id="input" type="file" name="dxfFile"></input>
+        <div class="btn-container--row btn-align--center">
+            <button class="btn button__btn btn--outlined btn--warning" type="reset" onclick="">
+                CANCEL
+            </button>
+            <button class="btn button__btn btn--outlined btn--primary" type="submit" onclick="">
+                Upload
+            </button>
+        </div>
     </form>
-    
 </div>
- <script src="/javascripts/fileUpload.js"></script>
+ <!-- <script src="/javascripts/fileUpload.js"></script> -->

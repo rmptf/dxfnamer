@@ -5,7 +5,6 @@ if (process.env.NODE_ENV !== 'production') {
 const express = require('express')
 const app = express()
 const expressLayouts = require('express-ejs-layouts')
-const aws = require('aws-sdk')
 
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
@@ -34,6 +33,9 @@ app.use('/', indexRouter)
 
 const fileRouter = require("./routes/files");
 app.use('/file', fileRouter);
+
+const fileUploader = require("./routes/aws_s3");
+app.use('/upload', fileUploader);
 
 app.listen(process.env.PORT || 3000)
 
