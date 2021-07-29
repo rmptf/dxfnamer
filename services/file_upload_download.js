@@ -2,7 +2,6 @@ const aws = require('aws-sdk')
 const multer = require('multer');
 const multerS3 = require('multer-s3');
 const imageMimeTypes = ["application/octet-stream"];
-const getNames = require('../services/get_names');
 
 // Grabbing AWS Keys from .env
 const awsSecretAccess = process.env.AWS_SECRET_ACCESS
@@ -36,11 +35,4 @@ const upload = multer({
     })
 })
 
-function download(key){
-    new aws.S3().getObject({ Bucket: awsBucket, Key: key }, function(err, data) {
-        if (!err)
-            getNames(data.Body.toString())
-    });
-}
-
-module.exports = {upload, download};
+module.exports = {upload};

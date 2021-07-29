@@ -4,6 +4,8 @@ const XLSX = require("xlsx")
 function getNames(data){
     //Read External Files and place in Variables
     // let dxfFile = fs.readFileSync('DECLAN_JKT.dxf', 'utf8')
+
+    //External file was read and contents passed through as a string
     let dxfFile = data
 
     //Split each file Variable into an array containing each line as its on item.
@@ -40,37 +42,11 @@ function getNames(data){
 
     //Eliminate duplicate pieceNames
     let uniqueNames = [...new Set(cleanPieceNames)];
-    console.log(uniqueNames.length)
+    // console.log(uniqueNames)
+    // console.log(uniqueNames.length)
 
-    createFile()
-    function createFile(){
-        const workbook1 = XLSX.utils.book_new()
-
-        XLSX.utils.book_append_sheet(workbook1, this.xlsxStats, 'Sheet1');
-        
-        XLSX.writeFile(workbook1, "Book1.xlsx")
-    }
-
-    editFile()
-    function editFile(){
-        const workbook = XLSX.readFile("Book1.xlsx")
-
-        let worksheets = {}
-        for(const sheetName of workbook.SheetNames) {
-            worksheets[sheetName] = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName])
-        }
-
-        for (let i = 0; i < uniqueNames.length; i++) {
-            worksheets.Sheet1.push({
-                OLD_NAME: uniqueNames[i],
-                NEW_NAME: "",
-                COMMENT: "",
-            })
-        }
-
-        XLSX.utils.sheet_add_json(workbook.Sheets["Sheet1"], worksheets.Sheet1)
-        XLSX.writeFile(workbook, "Book1.xlsx")
-    }
+    //Use getNames() as a constant and return all names as an array
+    return uniqueNames
 
     //Turn array back into string keeping line breaks
     // let finalFile = ""
@@ -87,6 +63,42 @@ function getNames(data){
     // //Create a file containing all the OldPieceNames
     // fs.writeFileSync('oldNamesList.txt', finalFile)
     // console.log(finalFile)
+
+    //Use getNames() as a constant and return all names as a string
+    // return finalFile
+
+    //Create a blank excel file to be edited later
+    // createFile()
+    // function createFile(){
+    //     const workbook1 = XLSX.utils.book_new()
+
+    //     XLSX.utils.book_append_sheet(workbook1, this.xlsxStats, 'Sheet1');
+        
+    //     XLSX.writeFile(workbook1, "Book1.xlsx")
+    // }
+
+
+    //Edit the file created earlier adding all names
+    // editFile()
+    // function editFile(){
+    //     const workbook = XLSX.readFile("Book1.xlsx")
+
+    //     let worksheets = {}
+    //     for(const sheetName of workbook.SheetNames) {
+    //         worksheets[sheetName] = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName])
+    //     }
+
+    //     for (let i = 0; i < uniqueNames.length; i++) {
+    //         worksheets.Sheet1.push({
+    //             OLD_NAME: uniqueNames[i],
+    //             NEW_NAME: "",
+    //             COMMENT: "",
+    //         })
+    //     }
+
+    //     XLSX.utils.sheet_add_json(workbook.Sheets["Sheet1"], worksheets.Sheet1)
+    //     XLSX.writeFile(workbook, "Book1.xlsx")
+    // }
 }
 
 module.exports = getNames;
